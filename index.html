@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simeple打</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/settings.css">
+  <script src="https://kit.fontawesome.com/16eac9473c.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="title">
+      <p id="title-text">Simple打</p>
+    </div>
+    <div class="header-right">
+      <i id="header-bars-icon" class="fas fa-bars"></i>
+      <ul>
+        <li id="setting-btn">設定</li>
+        <li id="usage-btn">使い方・情報</li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 設定、使い方モジュール -->
+  <div class="from-top-screen" id="setting-screen">
+    <div class="close-btn">
+      <i class="fas fa-times fa-2x"></i>
+   </div>
+    <div class="screen-content">
+      <h2>設定</h2>
+      <div class="set-limit">
+        <span class="set-label">制限時間</span>
+        <input type="range" value="6" min="10" max="180" step="10" oninput="document.getElementById('time-limit').value=this.value">
+  
+        <span id="limit-text"><output id="time-limit">10</output>秒</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="from-top-screen" id="usage-screen">
+    <div class="close-btn">
+      <i class="fas fa-times fa-2x"></i>
+    </div>
+    <div class="screen-content">
+      <h2>Simple打へようこそ！</h2>
+      <p>Simple打は、シンプルさを重視したタイピングゲームサイトです</p>
+      <h3>使い方</h3>
+      <p>ゲーム画面（グレーの背景）をクリックするとスタートします</p>
+      <p>入力するのはランダムな英単語、英熟語、制限時間は60秒です</p>
+      <p>制限時間は設定から変更することができます</p>
+      <h3>※</h3>
+      <p>大文字、小文字の区別があります（shiftで大文字）</p>
+      <p>WPMはWords Per Minuteの略ですが、ここではLetters Per Minuteを表します</p>
+      <p>収録英単語・イディオム数：<span id="wordsCount"></span></p>
+    </div>
+  </div>
+  <div id="game">
+  <section id="gamefield">
+    <p id="target">クリックでスタート</p>
+    <div class="info">
+      <p class="info-content">正しく打った文字数: <span id="letters">0</span></p>
+      <p class="info-content">ミス: <span id="miss">0</span></p>
+      <p class="info-content">残り時間: <span id="timer">0.00</span></p>
+    </div>
+  </section>
+  <div class="big-btn" id="show-result-btn">結果を表示</div>
+  <section id="result-screen">
+    <div id="result-content">
+      <div id="top-result">
+        <p>スコア：<span id="score"></span></p>
+        <p><span id="rank"></span></p>
+      </div>
+      <div id="detail-result">
+        <p>制限時間：<span id="elapsed-time"></span>秒</p>
+        <p>正しく打った文字：<span id="correct-letters"></span></p>
+        <p>ミス数：<span id="mistakes"></span></p>
+        <p>正確率：<span id="accuracy"></span>％</p>
+        <p>WPM：<span id="wpm"></span></p>
+      </div>
+      <div class="big-btn" id="close-result-btn">閉じる</div>
+    </div>
+  </section>
+  </div>
+  
+
+
+
+  <script src="js/words.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/rank.js"></script>
+  <script src="js/motion.js"></script>
+</body>
+</html>
